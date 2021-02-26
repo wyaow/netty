@@ -68,11 +68,11 @@ public class ChannelInitializer extends io.netty.channel.ChannelInitializer<Sock
 
         pl.addLast(new HttpServerCodec());
         pl.addLast(new HttpServerExpectContinueHandler());
-        // support for websocket handle
+        // websocket handle
         pl.addLast("http-aggregator", new HttpObjectAggregator(65536));
         pl.addLast(new WebSocketServerCompressionHandler());
         pl.addLast(new WebSocketServerProtocolHandler("/websocket", null, true));
-        pl.addLast(new NettyChannelHandler());
+        pl.addLast(new ChannelHandler());
     }
 
     /**
