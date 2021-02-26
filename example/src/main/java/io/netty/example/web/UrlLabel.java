@@ -2,6 +2,11 @@ import io.netty.handler.codec.http.HttpMethod;
 
 import java.util.Objects;
 
+// 定义处理借口
+public interface Handlable {
+    void handle(ChannelHandlerContext ctx, HttpRequest request, HttpResponse response);
+}
+
 public class UrlLabel {
     private String uri;
 
